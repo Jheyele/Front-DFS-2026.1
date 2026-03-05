@@ -96,3 +96,75 @@
   transform: scale(1.02);
   background: #20ba5a;
 }
+
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-edit,
+.btn-delete,
+.btn-save,
+.btn-cancel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.btn-edit {
+  background: #e0e7ff;
+  color: #4f46e5;
+}
+.btn-delete {
+  background: #fee2e2;
+  color: #ef4444;
+}
+.btn-save {
+  background: #dcfce7;
+  color: #16a34a;
+}
+.btn-cancel {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.btn-edit:hover {
+  background: #c7d2fe;
+}
+.btn-delete:hover {
+  background: #fecaca;
+}
+
+/* Estilos do Formulário de Edição */
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.edit-form input,
+.edit-form textarea,
+.edit-form select {
+  padding: 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.edit-form textarea {
+  height: 150px;
+  resize: vertical;
+}
