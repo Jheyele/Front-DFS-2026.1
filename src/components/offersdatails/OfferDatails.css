@@ -1,0 +1,242 @@
+/* Container Principal com Animação de Entrada */
+.details-container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+  min-height: 80vh;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header de Navegação */
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.btn-back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-back:hover {
+  background: #f8fafc;
+  color: #4f46e5;
+  border-color: #c7d2fe;
+}
+
+/* Card Principal */
+.details-card {
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f1f5f9;
+  overflow: hidden;
+  padding: 50px;
+}
+
+/* Estilização do Texto (Modo Visualização) */
+.category-badge {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white;
+  padding: 6px 20px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+}
+
+.details-header h1 {
+  font-size: 2.8rem;
+  margin: 20px 0 10px 0;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.level-indicator {
+  display: inline-flex;
+  align-items: center;
+  color: #64748b;
+  font-weight: 500;
+  background: #f1f5f9;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.description {
+  color: #475569;
+  line-height: 1.8;
+  font-size: 1.15rem;
+  margin: 40px 0;
+  white-space: pre-line; /* Mantém as quebras de linha do texto */
+}
+
+/* Caixa de Autor/Contato */
+.author-box {
+  background: #f8fafc;
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px dashed #cbd5e1;
+  margin-top: 40px;
+}
+
+.author-box h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #1e293b;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.author-box p {
+  margin: 10px 0;
+  color: #334155;
+  font-size: 1rem;
+}
+
+.author-box strong {
+  color: #64748b;
+  font-weight: 600;
+  width: 100px;
+  display: inline-block;
+}
+
+/* Botões de Ação do Admin */
+.admin-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-edit,
+.btn-delete,
+.btn-save,
+.btn-cancel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.btn-edit {
+  background: #eef2ff;
+  color: #4338ca;
+}
+.btn-delete {
+  background: #fff1f2;
+  color: #e11d48;
+}
+.btn-save {
+  background: #10b981;
+  color: white;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+}
+.btn-cancel {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.btn-edit:hover,
+.btn-delete:hover,
+.btn-save:hover {
+  transform: translateY(-2px);
+}
+
+/* Formulário de Edição */
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.edit-form label {
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: -15px;
+  font-size: 0.9rem;
+}
+
+.edit-form input,
+.edit-form textarea,
+.edit-form select {
+  padding: 14px 18px;
+  border: 2px solid #f1f5f9;
+  border-radius: 12px;
+  font-size: 1rem;
+  background: #f8fafc;
+  color: #1e293b;
+  transition: all 0.3s;
+}
+
+.edit-form input:focus,
+.edit-form textarea:focus,
+.edit-form select:focus {
+  outline: none;
+  border-color: #6366f1;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+.edit-form textarea {
+  height: 200px;
+  line-height: 1.6;
+}
+
+/* Erro Container */
+.error-container {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.error-container h2 {
+  color: #64748b;
+  margin-bottom: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .details-card {
+    padding: 30px 20px;
+  }
+  .details-header h1 {
+    font-size: 2rem;
+  }
+  .nav-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+  .admin-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
