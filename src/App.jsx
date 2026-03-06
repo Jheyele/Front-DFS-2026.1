@@ -1,3 +1,4 @@
+
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
 import { UserForm } from "./components/UserForm"
 import { UserList } from "./components/UserList"
@@ -13,8 +14,11 @@ const AuthRoute = ({component: Component}) => {
   return isTokenValid(token) ? <Component /> : <Navigate to="/login" />
 }
 
-function App() {
+import OffersPage from "./components/offers/OffersPage";
+import OfferDetails from "./components/offersdatails/OffersDatails";
 
+
+function App() {
   return (
     <BrowserRouter>
       <Routes>
@@ -23,9 +27,12 @@ function App() {
         <Route path="/users" element={<Home> <UserList /> </Home>}/>
         <Route path="/save-user" element={< AuthRoute component={UserForm} />}/>
         <Route path="/user/:id" element={< AuthRoute component={UserForm} />}/>
+        <Route path="/offers" element={<OffersPage />} />
+        <Route path="/offers/:id" element={<OfferDetails />} />
+    
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
