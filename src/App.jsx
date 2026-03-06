@@ -1,36 +1,42 @@
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
-import { UserForm } from "./components/UserForm"
-import { UserList } from "./components/UserList"
-import { LandingPage } from "./pages/LandingPage"
-import { Home } from "./pages/Home"
-import { LoginPage } from "./pages/LoginPage"
-import { useAuth } from "./context/AuthContext"
-import { isTokenValid } from "./services/ApiService"
+import Footer from "./components/footer/Footer";
+import Navbar from "./components/navbar/Navbar";
 
-const AuthRoute = ({component: Component}) => {
+import OfferDetails from "./components/offersdatails/OffersDatails";
+import { UserForm } from "./components/UserForm";
+import { useAuth } from "./context/AuthContext";
+import About from "./pages/about/About";
+import Contact from "./pages/contact/Contact";
+import Home from "./pages/home/Home";
+import { LoginPage } from "./pages/LoginPage";
+import OffersPage from "./pages/offers/OffersPage";
+import Register from "./pages/register/Register";
+import { isTokenValid } from "./services/ApiService";
+
+const AuthRoute = ({ component: Component }) => {
   const { token } = useAuth();
 
-  return isTokenValid(token) ? <Component /> : <Navigate to="/login" />
-}
-
-import OffersPage from "./components/offers/OffersPage";
-import OfferDetails from "./components/offersdatails/OffersDatails";
-
+  return isTokenValid(token) ? <Component /> : <Navigate to="/login" />;
+};
 
 function App() {
   return (
     <BrowserRouter>
+      <Navbar />
       <Routes>
-        <Route path="/" element={<LandingPage />}/>
-        <Route path="/login" element={<LoginPage />}/>
-        <Route path="/users" element={<Home> <UserList /> </Home>}/>
-        <Route path="/save-user" element={< AuthRoute component={UserForm} />}/>
-        <Route path="/user/:id" element={< AuthRoute component={UserForm} />}/>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/users" element={<Home />} />
+        <Route path="/save-user" element={<AuthRoute component={UserForm} />} />
+        <Route path="/user/:id" element={<AuthRoute component={UserForm} />} />
         <Route path="/offers" element={<OffersPage />} />
+        <Route path="/sobre" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/offers/:id" element={<OfferDetails />} />
-    
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
