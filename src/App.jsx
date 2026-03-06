@@ -13,6 +13,7 @@ import { LoginPage } from "./pages/LoginPage";
 import OffersPage from "./pages/offers/OffersPage";
 import Register from "./pages/register/Register";
 import { isTokenValid } from "./services/ApiService";
+import OfferCreate from "./pages/offers/OfferCreate";
 
 const AuthRoute = ({ component: Component }) => {
   const { token } = useAuth();
@@ -34,6 +35,7 @@ function App() {
         <Route path="/offers" element={<OffersPage />} />
         <Route path="/sobre" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/offers/create" element={<OfferCreate />} />
         <Route path="/offers/:id" element={<OfferDetails />} />
       </Routes>
       <Footer />

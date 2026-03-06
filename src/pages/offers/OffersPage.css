@@ -193,3 +193,48 @@ body {
 .btn-details:hover {
   background-color: #4f46e5;
 }
+
+.btn-save-offer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #28a745;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.btn-save-offer:hover {
+  background-color: #218838;
+}
+
+.btn-create-offer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #10b981;
+  color: white;
+  text-decoration: none;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-create-offer:hover {
+  background-color: #059669;
+}
+
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}

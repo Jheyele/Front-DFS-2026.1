@@ -1,4 +1,4 @@
-import { Eye, Search, Signal, User } from "lucide-react";
+import { Eye, Search, Signal, User, Plus } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getOffers } from "../../services/ApiService";
@@ -46,7 +46,12 @@ const OffersPage = () => {
               onChange={(e) => setBusca(e.target.value)}
             />
           </div>
+          <Link to="/offers/create" className="btn-create-offer">
+            <Plus size={20} />
+            Nova Oferta
+          </Link>
         </div>
+
       </header>
 
       {loading ? (
