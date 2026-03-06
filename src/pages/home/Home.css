@@ -44,7 +44,7 @@
 
 .hero p {
   font-size: 1.2rem;
-  color: #4b5563;
+  color: #010101;
   margin-bottom: 30px;
 }
 
@@ -207,4 +207,22 @@
     flex-direction: column;
     gap: 20px;
   }
+}
+.hero-text-container {
+    margin-top: 20px;
+    max-width: 600px; /* Evita que o texto ocupe a tela toda */
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: #4a5568; /* Um cinza escuro, mais suave que o preto */
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.hero-cta-text {
+    font-size: 1rem;
+    color: #2d3748;
+    border-left: 4px solid #007bff; /* Um detalhe azul lateral para dar destaque */
+    padding-left: 15px;
 }

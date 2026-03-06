@@ -7,15 +7,15 @@ const Home = () => {
     {
       id: 1,
       titulo: "Desenvolvimento Web Fullstack",
-      preco: "R$ 97,00",
+      preco: "R$ 0,00",
       antigoPreco: "R$ 497,00",
       desc: "Aprenda React, Node e Banco de Dados.",
-      tag: "Mais Vendido",
+      tag: "Mais Acessado",
     },
     {
       id: 2,
       titulo: "Design UX/UI Moderno",
-      preco: "R$ 47,00",
+      preco: "R$ 0,00",
       antigoPreco: "R$ 197,00",
       desc: "Crie interfaces que encantam usuários.",
       tag: "Oferta",
@@ -23,7 +23,7 @@ const Home = () => {
     {
       id: 3,
       titulo: "Marketing Digital 360",
-      preco: "R$ 67,00",
+      preco: "R$ 0,00",
       antigoPreco: "R$ 297,00",
       desc: "Domine anúncios e redes sociais.",
       tag: "Novo",
@@ -34,14 +34,19 @@ const Home = () => {
     <main className="">
       <section className="hero">
         <div className="hero-content">
-          <span className="badge">🚀 Ofertas de Verão: até 80% OFF</span>
+        
           <h1>
             Domine as habilidades que o <span>mercado procura.</span>
           </h1>
-          <p>
-            Cursos práticos, direto ao ponto e com certificados reconhecidos.
-            Comece a estudar hoje mesmo!
-          </p>
+      
+      <div className="hero-text-container">
+  <p className="hero-subtitle">
+    Acesse os melhores materiais e troque experiências com nossa comunidade de especialistas.
+  </p>
+  <p className="hero-cta-text">
+    <strong>Cadastre-se e comece a estudar hoje mesmo!</strong>
+  </p>
+</div>
           <div className="hero-buttons">
             <Link to={"/offers"} className="btn-primary">
               Ver Cursos
@@ -67,7 +72,7 @@ const Home = () => {
       <section id="ofertas" className="courses-section">
         <div className="section-header">
           <h2>Ofertas em Destaque</h2>
-          <p>Preços exclusivos por tempo limitado</p>
+          <p>CURSO COMPLETO DO BASICO AO AVANÇADO</p>
         </div>
 
         <div className="courses-grid">
