@@ -20,19 +20,22 @@ const teamMembers = [
   },
   {
     id: 3,
-    name: "Nome do Integrante",
+    name: "Math Menezes ",
     role: "Desenvolvedor Full Stack",
-    image: "https://via.placeholder.com/150",
+    image:
+      "https://media.licdn.com/dms/image/v2/D4E35AQH1t4TfT0rTMg/profile-framedphoto-shrink_400_400/B4EZwUcAliIkAc-/0/1769869413214?e=1773446400&v=beta&t=9mkM8sEQ4Ae2Akhtev42FLtRKUTL08dImxjcx4JI9vM",
     github: "https://github.com",
-    linkedin: "https://linkedin.com",
+    linkedin: "https://www.linkedin.com/in/math-menezes-07101b329/",
   },
   {
     id: 4,
     name: "Patrik Vilela",
     role: "Desenvolvedor Full Stack",
-    image: "https://via.placeholder.com/150",
+    image:
+      "https://media.licdn.com/dms/image/v2/C4D03AQE4snkX5n00Ng/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1543269001064?e=1774483200&v=beta&t=BHaAugp67-NLBerH80dKzO1msT_eBK5NJMogjdCejn4",
     github: "https://github.com/Patrikdevs",
-    linkedin: "https://linkedin.com",
+    linkedin:
+      "https://www.linkedin.com/in/patrikvilela/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
   },
   {
     id: 5,

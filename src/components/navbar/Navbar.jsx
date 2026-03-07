@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <img src="/Logo1.jpeg" alt="Logo" />
+        <img src="/logo.png" alt="Logo" />
       </div>
 
       <ul className="navbar-links">
@@ -29,9 +29,7 @@ const Navbar = () => {
         <li>
           <Link to="/contact">Contato</Link>
         </li>
-        <li>
-          <Link to="/users">Usuários</Link>
-        </li>
+
         <li>
           <Link to="/offers">Ofertas</Link>
         </li>

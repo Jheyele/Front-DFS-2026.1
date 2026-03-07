@@ -1,8 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-
 import Footer from "./components/footer/Footer";
-import Navbar from "./components/navbar/Navbar";
-
+import Navbar from "./components/navbar/Navbar"
 import OfferDetails from "./components/offersdatails/OffersDatails";
 import { UserForm } from "./components/UserForm";
 import { useAuth } from "./context/AuthContext";
@@ -14,6 +12,8 @@ import OffersPage from "./pages/offers/OffersPage";
 import Register from "./pages/register/Register";
 import { isTokenValid } from "./services/ApiService";
 import OfferCreate from "./pages/offers/OfferCreate";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
 
 const AuthRoute = ({ component: Component }) => {
   const { token } = useAuth();
@@ -23,6 +23,8 @@ const AuthRoute = ({ component: Component }) => {
 
 function App() {
   return (
+    <>
+    <ToastContainer />
     <BrowserRouter>
       <Navbar />
       <Routes>
@@ -40,6 +42,7 @@ function App() {
       </Routes>
       <Footer />
     </BrowserRouter>
+    </>
   );
 }
 

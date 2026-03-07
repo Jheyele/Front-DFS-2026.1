@@ -1,32 +1,43 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { Box, Button, Container, Paper, TextField, Typography, MenuItem, IconButton } from '@mui/material';
-import ArrowBack from '@mui/icons-material/ArrowBack';
-import SaveIcon from '@mui/icons-material/Save';
-
+import ArrowBack from "@mui/icons-material/ArrowBack";
+import SaveIcon from "@mui/icons-material/Save";
+import {
+  Box,
+  Button,
+  Container,
+  IconButton,
+  MenuItem,
+  Paper,
+  TextField,
+  Typography,
+} from "@mui/material";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ToastAlert } from "../../../utils/ToastAlerta";
 
 const OfferCreate = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    title: '',
-    category: '',
-    level: 'Iniciante',
-    description: '',
-    userId:''
+    title: "",
+    category: "",
+    level: "Iniciante",
+    description: "",
+    userId: "",
   });
 
   useEffect(() => {
-    const userIdStorage = localStorage.getItem('userId');
+    const userIdStorage = localStorage.getItem("userId");
 
-    if (!userIdStorage){
-        alert("O seu login expirou, entre novamente.");
-        navigate('/login');
-    } else{
-        setFormData({...formData, userId: userIdStorage});
+    if (!userIdStorage) {
+      ToastAlert("O seu login expirou, entre novamente.", "info");
+
+      navigate("/login");
+    } else {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setFormData({ ...formData, userId: userIdStorage });
     }
-  },[navigate])
+  }, [navigate]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,26 +46,29 @@ const OfferCreate = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
-        const response = await axios.post("https://squad10.onrender.com/offers", formData)
+      const response = await axios.post(
+        "https://squad10.onrender.com/offers",
+        formData
+      );
 
-        if (response.status === 201 || response.status === 200){
-            alert("Oferta cadastrada com sucesso");
-            navigate("/offers");
-        }
-
+      if (response.status === 201 || response.status === 200) {
+        ToastAlert("Oferta cadastrada com sucesso", "sucesso");
+        navigate("/offers");
+      }
+      // eslint-disable-next-line no-unused-vars
     } catch (error) {
-        alert("Erro ao cadastrar oferta, tente novamente.")
+      ToastAlert("Erro ao cadastrar oferta, tente novamente.", "erro");
     }
   };
 
-return (
-    <Box 
-      display="flex" 
+  return (
+    <Box
+      display="flex"
       flexDirection="column"
-      minHeight="100vh" 
-      sx={{ backgroundColor: '#f5f7fa', py: 4 }}
+      minHeight="100vh"
+      sx={{ backgroundColor: "#f5f7fa", py: 4 }}
     >
       <Container maxWidth="sm">
         <Box display="flex" alignItems="center" mb={3}>
@@ -68,7 +82,6 @@ return (
 
         <Paper elevation={3} sx={{ p: 4, borderRadius: 3 }}>
           <Box component="form" onSubmit={handleSubmit}>
-            
             <TextField
               label="Título da Oferta"
               name="title"
@@ -124,11 +137,10 @@ return (
               fullWidth
               size="large"
               startIcon={<SaveIcon />}
-              sx={{ mt: 4, py: 1.5, fontWeight: 'bold', borderRadius: 2 }}
+              sx={{ mt: 4, py: 1.5, fontWeight: "bold", borderRadius: 2 }}
             >
               Salvar Oferta
             </Button>
-            
           </Box>
         </Paper>
       </Container>

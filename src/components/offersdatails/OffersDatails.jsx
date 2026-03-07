@@ -2,6 +2,7 @@ import axios from "axios";
 import { ArrowLeft, Edit, Save, Trash2, User, X } from "lucide-react";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { ToastAlert } from "../../../utils/ToastAlerta";
 import "./OfferDatails.css";
 
 const OfferDetails = () => {
@@ -24,11 +25,11 @@ const OfferDetails = () => {
   const handleDelete = async () => {
     if (window.confirm("Tem certeza que deseja excluir esta oferta?")) {
       try {
-        await axios.delete(`http://localhost:3000/offers/${offer.id}`);
-        alert("Oferta removida com sucesso!");
-        navigate("/"); // Volta para a lista
+        await axios.delete(`https://squad10.onrender.com/offers/${offer.id}`);
+        ToastAlert("Oferta removida com sucesso!", "sucesso");
+        navigate("/");
       } catch (err) {
-        alert("Erro ao deletar oferta.");
+        ToastAlert("Erro ao deletar oferta.", "erro");
         console.error(err);
       }
     }
@@ -36,13 +37,16 @@ const OfferDetails = () => {
 
   const handleSave = async () => {
     try {
-      await axios.put(`http://localhost:3000/offers/${offer.id}`, formData);
-      alert("Oferta atualizada!");
+      await axios.put(
+        `https://squad10.onrender.com/offers/${offer.id}`,
+        formData
+      );
+      ToastAlert("Oferta atualizada!", "sucesso");
       setIsEditing(false);
       navigate("/");
       // eslint-disable-next-line no-unused-vars
     } catch (err) {
-      alert("Erro ao atualizar oferta.");
+      ToastAlert("Erro ao atualizar oferta.", "erro");
     }
   };
 

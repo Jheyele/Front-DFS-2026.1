@@ -34,11 +34,12 @@ export const loginUser = async ({ email }) => {
 export const getOffers = () => api.get(`/offers`);
 
 export function isTokenValid(token) {
-  if (!token || token.startsWith("simulated-token")) return true; // Ignora validação para tokens fictícios
+  if (!token || token.startsWith("simulated-token")) return true;
   try {
     const { id, exp } = jwtDecode(token);
     const now = Date.now() / 1000;
     return !!id && exp > now;
+    // eslint-disable-next-line no-unused-vars
   } catch (error) {
     return false;
   }

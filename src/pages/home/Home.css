@@ -12,7 +12,7 @@
   padding: 40px;
   gap: 40px;
 
-  background-image: url("/certificado.jpeg");
+  background-image: url("/bnr.png");
   background-repeat: no-repeat;
   background-position: 0 0px;
   background-size: cover;
@@ -33,7 +33,7 @@
 
 .hero h1 {
   font-size: 3.5rem;
-  color: #111827;
+  color: #f08426;
   line-height: 1.1;
   margin: 20px 0;
 }
@@ -44,7 +44,7 @@
 
 .hero p {
   font-size: 1.2rem;
-  color: #010101;
+  color: #fff;
   margin-bottom: 30px;
 }
 
@@ -120,8 +120,9 @@
 }
 
 .course-image {
-  height: 180px;
-  background-color: #e5e7eb; /* Placeholder para imagem */
+  object-position: center;
+  object-fit: cover;
+  width: 100%;
 }
 
 .course-info {
@@ -153,7 +154,7 @@
 }
 
 .btn-enroll {
-  width: 100%;
+  width: 90%;
   background: #f8fafc;
   border: 1px solid #3b82f6;
   color: #3b82f6;
@@ -166,6 +167,17 @@
   justify-content: center;
   gap: 8px;
   transition: 0.3s;
+  text-decoration: none;
+}
+
+.hero-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.stat {
+  color: white;
 }
 
 .btn-enroll:hover {

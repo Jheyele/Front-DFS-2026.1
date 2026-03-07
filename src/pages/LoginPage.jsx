@@ -18,6 +18,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
+import { ToastAlert } from "../../utils/ToastAlerta";
 import { useAuth } from "../context/AuthContext";
 import { loginUser } from "../services/ApiService";
 
@@ -40,7 +41,7 @@ export function LoginPage() {
       const { data } = await loginUser({ email });
 
       login(data);
-
+      ToastAlert("Usuário foi Logado com sucesso!", "sucesso");
       navigate("/");
     } catch (err) {
       const errorMessage =
@@ -48,7 +49,7 @@ export function LoginPage() {
           ? "Este e-mail não está cadastrado em nossa base."
           : "Erro ao conectar com o servidor. Tente novamente mais tarde.";
 
-      setError(errorMessage);
+      ToastAlert(`${errorMessage}`, "sucesso");
     } finally {
       setLoading(false);
     }
