@@ -1,4 +1,4 @@
-import { Eye, Search, Signal, User, Plus } from "lucide-react";
+import { Eye, Plus, Search, Signal, User } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getOffers } from "../../services/ApiService";
@@ -8,13 +8,19 @@ const OffersPage = () => {
   const [offers, setOffers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [busca, setBusca] = useState("");
+  // Novos estados para os filtros
+  const [categoria, setCategoria] = useState("");
+  const [nivel, setNivel] = useState("");
 
   const fetchOffers = async () => {
     setLoading(true);
     try {
       const response = await getOffers({
         params: {
-          busca: busca || undefined,
+          // Garantimos que se o estado for vazio, enviamos undefined para o Prisma ignorar
+          busca: busca.trim() || undefined,
+          categoria: categoria || undefined,
+          nivel: nivel || undefined,
         },
       });
       setOffers(response.data);
@@ -24,18 +30,19 @@ const OffersPage = () => {
       setLoading(false);
     }
   };
-
+  // O useEffect agora observa busca, categoria e nivel
   useEffect(() => {
     const delayDebounce = setTimeout(() => {
       fetchOffers();
     }, 500);
     return () => clearTimeout(delayDebounce);
-  }, [busca]);
+  }, [busca, categoria, nivel]);
 
   return (
     <div className="container">
       <header className="header">
         <h1>Ofertas</h1>
+
         <div className="filter-bar">
           <div className="search-input">
             <Search size={20} />
@@ -46,12 +53,35 @@ const OffersPage = () => {
               onChange={(e) => setBusca(e.target.value)}
             />
           </div>
+
+          {/* Novos Selects para Filtros */}
+          <select
+            value={categoria}
+            onChange={(e) => setCategoria(e.target.value)}
+            className="filter-select"
+          >
+            <option value="">Todas Categorias</option>
+            <option value="Programação">Programação</option>
+            <option value="Design">Design</option>
+            <option value="Marketing">Marketing</option>
+          </select>
+
+          <select
+            value={nivel}
+            onChange={(e) => setNivel(e.target.value)}
+            className="filter-select"
+          >
+            <option value="">Todos os Níveis</option>
+            <option value="Iniciante">Iniciante</option>
+            <option value="Intermediário">Intermediário</option>
+            <option value="Avançado">Avançado</option>
+          </select>
+
           <Link to="/offers/create" className="btn-create-offer">
             <Plus size={20} />
             Nova Oferta
           </Link>
         </div>
-
       </header>
 
       {loading ? (
@@ -74,7 +104,6 @@ const OffersPage = () => {
                     </div>
                   </div>
                 </div>
-
                 <div className="card-footer">
                   <Link
                     to={`/offers/${offer.id}`}

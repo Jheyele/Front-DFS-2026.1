@@ -31,7 +31,7 @@ export const loginUser = async ({ email }) => {
   };
 };
 
-export const getOffers = () => api.get(`/offers`);
+export const getOffers = (config = {}) => api.get(`/offers`, config);
 
 export function isTokenValid(token) {
   if (!token || token.startsWith("simulated-token")) return true;
