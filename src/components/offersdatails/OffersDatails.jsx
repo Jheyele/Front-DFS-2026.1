@@ -10,8 +10,13 @@ const OfferDetails = () => {
   const navigate = useNavigate();
   const offer = location.state?.offerData;
 
+  const loggedUserId = localStorage.getItem("userId");
+  const token = localStorage.getItem("token");
+
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({ ...offer });
+
+  const isOwner = loggedUserId === offer?.user?.id;
 
   if (!offer) {
     return (
@@ -25,7 +30,9 @@ const OfferDetails = () => {
   const handleDelete = async () => {
     if (window.confirm("Tem certeza que deseja excluir esta oferta?")) {
       try {
-        await axios.delete(`https://squad10.onrender.com/offers/${offer.id}`);
+        await axios.delete(`https://squad10.onrender.com/offers/${offer.id}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
         ToastAlert("Oferta removida com sucesso!", "sucesso");
         navigate("/");
       } catch (err) {
@@ -39,11 +46,13 @@ const OfferDetails = () => {
     try {
       await axios.put(
         `https://squad10.onrender.com/offers/${offer.id}`,
-        formData
+        formData,
+        { headers: { Authorization: `Bearer ${token}` } }
       );
       ToastAlert("Oferta atualizada!", "sucesso");
       setIsEditing(false);
       navigate("/");
+
       // eslint-disable-next-line no-unused-vars
     } catch (err) {
       ToastAlert("Erro ao atualizar oferta.", "erro");
@@ -57,30 +66,32 @@ const OfferDetails = () => {
           <ArrowLeft size={20} /> Voltar
         </button>
 
-        <div className="admin-actions">
-          {!isEditing ? (
-            <>
-              <button onClick={() => setIsEditing(true)} className="btn-edit">
-                <Edit size={18} /> Editar
-              </button>
-              <button onClick={handleDelete} className="btn-delete">
-                <Trash2 size={18} /> Deletar
-              </button>
-            </>
-          ) : (
-            <>
-              <button onClick={handleSave} className="btn-save">
-                <Save size={18} /> Salvar
-              </button>
-              <button
-                onClick={() => setIsEditing(false)}
-                className="btn-cancel"
-              >
-                <X size={18} /> Cancelar
-              </button>
-            </>
-          )}
-        </div>
+        {isOwner && (
+          <div className="admin-actions">
+            {!isEditing ? (
+              <>
+                <button onClick={() => setIsEditing(true)} className="btn-edit">
+                  <Edit size={18} /> Editar
+                </button>
+                <button onClick={handleDelete} className="btn-delete">
+                  <Trash2 size={18} /> Deletar
+                </button>
+              </>
+            ) : (
+              <>
+                <button onClick={handleSave} className="btn-save">
+                  <Save size={18} /> Salvar
+                </button>
+                <button
+                  onClick={() => setIsEditing(false)}
+                  className="btn-cancel"
+                >
+                  <X size={18} /> Cancelar
+                </button>
+              </>
+            )}
+          </div>
+        )}
       </div>
 
       <div className="details-card">
