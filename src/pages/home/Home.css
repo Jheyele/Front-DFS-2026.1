@@ -1,0 +1,276 @@
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+  gap: 40px;
+
+  background-image: url("/bnr.png");
+  background-repeat: no-repeat;
+  background-position: 0 0px;
+  background-size: cover;
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.badge {
+  background-color: #dbeafe;
+  color: #1e40af;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  color: #f08426;
+  line-height: 1.1;
+  margin: 20px 0;
+}
+
+.hero h1 span {
+  color: #3b82f6;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-primary {
+  background-color: #3b82f6;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.btn-secondary {
+  border: 2px solid #e5e7eb;
+  background: white;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Cards de Cursos */
+.courses-section {
+  padding: 60px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.course-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  position: relative;
+  border: 1px solid #f3f4f6;
+}
+
+.course-card:hover {
+  transform: translateY(-10px);
+}
+
+.course-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #ef4444;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.course-image {
+  object-position: center;
+  object-fit: cover;
+  width: 100%;
+}
+
+.course-info {
+  padding: 20px;
+}
+
+.course-info h3 {
+  margin: 0 0 10px 0;
+  color: #1f2937;
+}
+
+.price-container {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+
+.new-price {
+  color: #059669; /* Verde para sucesso/venda */
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.btn-enroll {
+  width: 90%;
+  background: #f8fafc;
+  border: 1px solid #3b82f6;
+  color: #3b82f6;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.hero-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.stat {
+  color: white;
+}
+
+.btn-enroll:hover {
+  background: #3b82f6;
+  color: white;
+}
+
+/* Faixa de Recursos */
+.features-strip {
+  display: flex;
+  justify-content: space-around;
+  padding: 40px;
+  background: #f9fafb;
+  border-radius: 16px;
+  margin: 60px 0;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #374151;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 0;
+  }
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .hero-buttons {
+    justify-content: center;
+  }
+  .features-strip {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+.hero-text-container {
+  margin-top: 20px;
+  max-width: 600px; /* Evita que o texto ocupe a tela toda */
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: #4a5568; /* Um cinza escuro, mais suave que o preto */
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.hero-cta-text {
+  font-size: 1rem;
+  color: #2d3748;
+  border-left: 4px solid #007bff; /* Um detalhe azul lateral para dar destaque */
+  padding-left: 15px;
+}
+
+/* Estilização para o nome do autor e a caixa de troca */
+.author-name {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.description {
+  font-size: 0.95rem;
+  color: #475569;
+  height: 60px; /* Mantém os cards alinhados */
+  overflow: hidden;
+}
+
+.exchange-box {
+  background-color: #f0f9ff;
+  border: 1px dashed #3b82f6;
+  padding: 10px;
+  border-radius: 6px;
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #1e40af;
+  font-weight: 500;
+}
+
+.course-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8fafc;
+  height: 120px;
+}
